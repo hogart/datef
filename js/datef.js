@@ -1,5 +1,5 @@
-(function() {
-    "use strict";
+(function () {
+    'use strict';
 
 
     var root = window || global;
@@ -22,41 +22,50 @@
     var regexp = new RegExp(possibleFormats.join('|'), 'mg');
 
     var extractors = {
-        YYYY: function(date) {
+        YYYY: function (date) {
             return date.getFullYear();
         },
-        YY: function(date) {
+        YY: function (date) {
             return leadingZeroes(date.getFullYear() % 100);
         },
-        MM: function(date) {
+        MM: function (date) {
             return leadingZeroes(date.getMonth() + 1);
         },
-        M: function(date) {
+        M: function (date) {
             return date.getMonth() + 1;
         },
-        dd: function(date) {
+        dd: function (date) {
             return leadingZeroes(date.getDate());
         },
-        d: function(date) {
+        d: function (date) {
             return date.getDate();
         },
-        hh: function(date) {
+        hh: function (date) {
             return leadingZeroes(date.getHours());
         },
-        h: function(date) {
+        h: function (date) {
             return date.getHours();
         },
-        mm: function(date) {
+        mm: function (date) {
             return leadingZeroes(date.getMinutes());
         },
-        m: function(date) {
+        m: function (date) {
             return date.getMinutes();
         },
-        ss: function(date) {
+        ss: function (date) {
             return leadingZeroes(date.getSeconds());
         },
-        s: function(date) {
+        s: function (date) {
             return date.getSeconds();
+        },
+
+        TZ: function (date) {
+            var tz = date.getTimezoneOffset(),
+                hours = Math.abs(Math.floor(tz / 60)),
+                mins = tz % 60,
+                sign = tz > 0 ? '+' : '-';
+
+            return [sign, leadingZeroes(hours), ':', leadingZeroes(mins)].join('');
         }
     };
 
@@ -66,12 +75,45 @@
      * @param {Date|Number} [date=Date.now]
      * @return {String}
      */
-    root.datef = function(format, date) {
-        var dt = arguments.length === 2 ? new Date(date) : new Date(),
+    var datef = function (format, date) {
+        var dt = (arguments.length === 2 && date) ? new Date(date) : new Date(),
             result = new String(format);
 
-        return result.replace(regexp, function(match) {
+        return result.replace(regexp, function (match) {
             return extractors[match](dt);
         });
     };
+
+    datef.ISO = {
+        date: function (date) {
+            return datef('YYYY-MM-dd', date)
+        },
+
+        time: function (date) {
+            return datef('hh:mm:ss', date)
+        },
+
+        datetime: function (date) {
+            return datef('YYYY-MM-ddThh:mm:ss', date)
+        }
+    };
+
+    var createFormatter = datef.createFormatter = function (format) {
+        return function (date) {
+            return datef(format, date)
+        }
+    };
+
+    var formatters = datef.formatters = {};
+
+    var register = datef.register = function (name, format) {
+        formatters[name] = createFormatter(format)
+    };
+
+
+    register('ISODate', 'YYYY-MM-dd');
+    register('ISOTime', 'hh:mm:ss');
+    register('ISODateTime', 'YYYY-MM-ddThh:mm:ss');
+
+
 })();

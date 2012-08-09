@@ -1,10 +1,6 @@
 (function () {
     'use strict';
 
-
-    var root = window || global;
-
-
     function leadingZeroes(value, length) {
         var str = value.toString(),
             finalLen = arguments.length == 2 ? length : 2;
@@ -18,7 +14,7 @@
         return str;
     }
 
-    var possibleFormats = 'YYYY YY MM M dd d hh h mm m ss s'.split(' ');
+    var possibleFormats = 'YYYY YY MM M dd d hh h mm m ss s TZ'.split(' ');
     var regexp = new RegExp(possibleFormats.join('|'), 'mg');
 
     var extractors = {
@@ -58,7 +54,6 @@
         s: function (date) {
             return date.getSeconds();
         },
-
         TZ: function (date) {
             var tz = date.getTimezoneOffset(),
                 hours = Math.abs(Math.floor(tz / 60)),
@@ -75,27 +70,13 @@
      * @param {Date|Number} [date=Date.now]
      * @return {String}
      */
-    var datef = function (format, date) {
+    function datef (format, date) {
         var dt = (arguments.length === 2 && date) ? new Date(date) : new Date(),
             result = new String(format);
 
         return result.replace(regexp, function (match) {
             return extractors[match](dt);
         });
-    };
-
-    datef.ISO = {
-        date: function (date) {
-            return datef('YYYY-MM-dd', date)
-        },
-
-        time: function (date) {
-            return datef('hh:mm:ss', date)
-        },
-
-        datetime: function (date) {
-            return datef('YYYY-MM-ddThh:mm:ss', date)
-        }
     };
 
     var createFormatter = datef.createFormatter = function (format) {
@@ -114,6 +95,37 @@
     register('ISODate', 'YYYY-MM-dd');
     register('ISOTime', 'hh:mm:ss');
     register('ISODateTime', 'YYYY-MM-ddThh:mm:ss');
+    register('iSODateTimeTZ', 'YYYY-MM-ddThh:mm:ssTZ');
 
 
+
+    var root;
+    if (typeof window !== 'undefined') {
+        root = window
+    } else if (typeof global !== 'undefined') {
+        root = global;
+    }
+    else {
+        root = this;
+    }
+
+    var prevDatef = root.datef;
+    datef.noConflict = function () {
+        root.datef = prevDatef;
+        return this;
+    };
+
+    if (typeof exports !== 'undefined') { // node.js environment
+        module.exports.datef = datef;
+    } else if (typeof define === 'function' && define.amd) { // requirejs/amd env
+        define(
+            'datef',
+            [],
+            function () {
+                return datef;
+            }
+        );
+    } else { // plain browser environment
+        root.datef = datef;
+    }
 })();

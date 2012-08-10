@@ -20,8 +20,6 @@
         return str;
     }
 
-    var possibleFormats = 'YYYY YY MM M dd d hh h mm m ss s TZ'.split(' ');
-    var regexp = new RegExp(possibleFormats.join('|'), 'mg');
 
     var extractors = {
         YYYY: function (date) {
@@ -69,6 +67,14 @@
             return [sign, leadingZeroes(hours), ':', leadingZeroes(mins)].join('');
         }
     };
+
+    var possibleFormats = [];
+    for (var extractor in extractors) {
+        if (extractor.hasOwnProperty(extractor)) {
+            possibleFormats.push(extractor)
+        }
+    }
+    var regexp = new RegExp(possibleFormats.join('|'), 'mg');
 
     /**
      * Formats date according to <b>format</b> string.

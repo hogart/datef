@@ -71,7 +71,7 @@
 
     var possibleFormats = [];
     for (var extractor in tokens) {
-        if (extractor.hasOwnProperty(extractor)) {
+        if (tokens.hasOwnProperty(extractor)) {
             possibleFormats.push(extractor)
         }
     }

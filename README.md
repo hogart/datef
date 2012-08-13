@@ -31,6 +31,20 @@ datef.formatters.myFormat(); // "13.8.12"
 var myFormat = datef.createFormatter('d.M.YY');
 ```
 
+### Cleaning global namespace
+This is similar to [`Backbone.noConflict()`](http://backbonejs.org/#Utility-noConflict)
+```html
+<script>var datef = 'My very important data';</script>
+…
+<script src="js/datef.js"></script>
+
+<script>
+console.log(typeof datef); // "function"
+var formattingLib = datef.noConflict();
+console.log(datef); // 'My very important data'
+</script
+```
+
 ##Tokens
 
 Full list of tokens possible in format string include:

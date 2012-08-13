@@ -15,13 +15,14 @@
             return str;
         }
 
+        // this task can be accomplished in one line — empty for cycle
         for (str; str.length < finalLen; str = '0' + str);
 
         return str;
     }
 
 
-    var extractors = {
+    var tokens = {
         YYYY: function (date) {
             return date.getFullYear();
         },
@@ -58,7 +59,7 @@
         s: function (date) {
             return date.getSeconds();
         },
-        TZ: function (date) {
+        Z: function (date) {
             var tz = date.getTimezoneOffset(),
                 hours = Math.abs(Math.floor(tz / 60)),
                 mins = tz % 60,
@@ -69,7 +70,7 @@
     };
 
     var possibleFormats = [];
-    for (var extractor in extractors) {
+    for (var extractor in tokens) {
         if (extractor.hasOwnProperty(extractor)) {
             possibleFormats.push(extractor)
         }
@@ -106,7 +107,7 @@
             result = new String(format);
 
         return result.replace(regexp, function (match) {
-            return extractors[match](dt);
+            return tokens[match](dt);
         });
     };
 
@@ -142,7 +143,7 @@
     register('ISODate', 'YYYY-MM-dd');
     register('ISOTime', 'hh:mm:ss');
     register('ISODateTime', 'YYYY-MM-ddThh:mm:ss');
-    register('iSODateTimeTZ', 'YYYY-MM-ddThh:mm:ssTZ');
+    register('iSODateTimeTZ', 'YYYY-MM-ddThh:mm:ssZ');
 
 
     // get reference to global object

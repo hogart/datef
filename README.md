@@ -1,10 +1,6 @@
-datef
-=====
+**datef** is a Javascript date formatting library, both for browser and node.js.
 
-**datef** is a Javascript date formatting library, both for browser and node.js
-
-Features
-========
+##Features
 
 * Can output: year, full year, month, day, hour, minutes, seconds and timezone
 * Built-in formats and easyly extensible
@@ -13,8 +9,7 @@ Features
 * No external dependencies
 * Contains predefined formats for some ISO8601 date and time representation
 
-Usage
-=====
+##Usage
 
 ```javascript
 // basic usage
@@ -33,20 +28,33 @@ datef.register('myFormat', 'd.M.YY');
 datef.formatters.myFormat(); // "13.8.12"
 // or as standalone function
 var myFormat = datef.createFormatter('d.M.YY');
+```
 
-Tokens
-======
+##Tokens
 
+Full list of tokens possible in format string include:
 **YYYY**: 4-digit year
+
 **YY**: last 2 digit of year
+
 **MM**: ISO8601-compatible number of month (i.e. zero-padded) in year (with January being 1st month)
+
 **M**: number of month in year without zero-padding (with January being 1st month)
+
 **dd**: zero-padded number of day in month
+
 **d**: number of day in month
+
 **hh**: zero-padded hour
+
 **h**: hour
+
 **mm**: zero-padded minutes
+
 **m**: minutes
+
 **ss**: zero-padded seconds
+
 **s**: seconds
-**TZ**: time-zone in ISO8601-compatible format (i.e. "-04:00")
+
+**Z**: time-zone in ISO8601-compatible format (i.e. "-04:00")

@@ -2,12 +2,13 @@
 
 ##Features
 
-* Can output: year, full year, month, day, hour, minutes, seconds and timezone
+* Can output: year, full year, month, day, hour, minutes, seconds and timezone — both zero padded and not
 * Built-in formats and easyly extensible
 * Doesn't mess with built-in prototypes
 * Acts as node.js and requirejs/amd module, and have  `.noConflict` method in case no module system is present (e.g. plain browser environment)
 * No external dependencies
 * Contains predefined formats for some ISO8601 date and time representation
+* Thoroughly annotated with jsdoc, so if your IDE/editor supports it, you may never need interrupt yourself from code
 
 ##Usage
 
@@ -58,3 +59,8 @@ Full list of tokens possible in format string include:
 **s**: seconds
 
 **Z**: time-zone in ISO8601-compatible format (i.e. "-04:00")
+
+##Roadmap
+
+* add ability to extend set of tokens
+* add l10n capabilities

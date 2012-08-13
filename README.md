@@ -42,7 +42,7 @@ This is similar to [`Backbone.noConflict()`](http://backbonejs.org/#Utility-noCo
 console.log(typeof datef); // "function"
 var formattingLib = datef.noConflict();
 console.log(datef); // 'My very important data'
-</script
+</script>
 ```
 
 ##Tokens

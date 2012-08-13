@@ -48,6 +48,7 @@ console.log(datef); // 'My very important data'
 ##Tokens
 
 Full list of tokens possible in format string include:
+
 **YYYY**: 4-digit year
 
 **YY**: last 2 digit of year

@@ -67,6 +67,12 @@
 
             return [sign, leadingZeroes(hours), ':', leadingZeroes(mins)].join('');
         }
+        ff: function (date) {
+            return leadingZeroes(date.getMilliseconds(), 3);
+        },
+        f: function (date) {
+            return date.getMilliseconds();
+        }
     };
 
     var possibleFormats = [];

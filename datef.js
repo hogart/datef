@@ -66,7 +66,7 @@
                 sign = tz > 0 ? '+' : '-';
 
             return [sign, leadingZeroes(hours), ':', leadingZeroes(mins)].join('');
-        }
+        },
         ff: function (date) {
             return leadingZeroes(date.getMilliseconds(), 3);
         },

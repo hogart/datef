@@ -75,6 +75,10 @@ Full list of tokens possible in format string include:
 
 **Z**: time-zone in ISO8601-compatible format (i.e. "-04:00")
 
+**ff**: zero-padded milliseconds, 3 digits
+
+**f**: milliseconds
+
 ##Roadmap
 
 * add ability to extend set of tokens

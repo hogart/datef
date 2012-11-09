@@ -59,6 +59,12 @@
         s: function (date) {
             return date.getSeconds();
         },
+        ff: function (date) {
+            return leadingZeroes(date.getMilliseconds(), 3);
+        },
+        f: function (date) {
+            return date.getMilliseconds();
+        },
         Z: function (date) {
             var tz = date.getTimezoneOffset(),
                 hours = Math.abs(Math.floor(tz / 60)),
@@ -66,12 +72,6 @@
                 sign = tz > 0 ? '+' : '-';
 
             return [sign, leadingZeroes(hours), ':', leadingZeroes(mins)].join('');
-        },
-        ff: function (date) {
-            return leadingZeroes(date.getMilliseconds(), 3);
-        },
-        f: function (date) {
-            return date.getMilliseconds();
         }
     };
 
@@ -100,6 +100,8 @@
      *  <b>m</b>: minutes
      *  <b>ss</b>: zero-padded seconds
      *  <b>s</b>: seconds
+     *  <b>ff</b>: zero-padded milliseconds
+     *  <b>f</b>: milliseconds
      *  <b>TZ</b>: time-zone in ISO8601-compatible format (i.e. "-04:00")
      *
      *  Longer tokens take precedence over shorter ones (so "MM" will aways be "04", not "44" in april).
@@ -109,7 +111,7 @@
      * @return {String}
      */
     function datef (format, date) {
-        var dt = (arguments.length === 2 && date) ? new Date(date) : new Date(),
+        var dt = (arguments.length === 2 && date) ? date instanceof Date ? date : new Date(date) : new Date(),
             result = new String(format);
 
         return result.replace(regexp, function (match) {

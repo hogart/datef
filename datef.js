@@ -151,7 +151,7 @@
     register('ISODate', 'YYYY-MM-dd');
     register('ISOTime', 'hh:mm:ss');
     register('ISODateTime', 'YYYY-MM-ddThh:mm:ss');
-    register('ISODateTimeTZ', 'YYYY-MM-ddThh:mm:ss Z');
+    register('ISODateTimeTZ', 'YYYY-MM-ddThh:mm:ssZ');
 
 
     // get reference to global object

@@ -1,0 +1,31 @@
+{
+  "name": "datef",
+  "version": "0.0.4",
+  "description": "Simple date formatting library with i10n, both for browser and node.js",
+  "main": "datef.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxvipon/datef.git"
+  },
+  "keywords": [
+    "moment",
+    "date",
+    "time",
+    "format",
+    "l10n"
+  ],
+  "author": "Konstantin Kitmanov <doctor.hogart@gmail.com>",
+  "contributors" : [
+    {
+      "name": "Maxim Ponomarev",
+      "email": "maxvipon@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maxvipon/datef/issues"
+  }
+}

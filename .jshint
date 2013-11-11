@@ -1,0 +1,30 @@
+{
+    // Enforcing options
+    "camelcase": true,
+    "curly": true,
+    "eqeqeq": true,
+    "immed": true,
+    "indent": 4,
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "quotmark": "single",
+    "undef": true,
+    "unused": true,
+    "trailing": true,
+    "maxdepth": 3,
+    "maxstatements": 12,
+    "maxcomplexity": 5,
+    
+    // Relaxing options
+    "boss": true,
+    "eqnull": true,
+    "expr": true,
+    "lastsemic": true,
+    "sub": true,
+    
+    // Environments
+    "maxerr": 5,
+    "browser": true,
+    "node": true
+}

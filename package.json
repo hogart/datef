@@ -11,7 +11,7 @@
     "format"
   ],
 
-  "authors": [
+  "contributors": [
     "Konstantin Kitmanov <doctor.hogart@gmail.com>",
     "Maxim Ponomarev <MVPonomarev@gmail.com>"
   ],
@@ -21,9 +21,9 @@
     "url": "git://github.com/hogart/datef.git"
   },
 
-  "moduleType": [
-    "amd",
-    "globals",
-    "node"
-  ]
+  "author": "Konstantin Kitmanov <doctor.hogart@gmail.com>",
+
+  "bugs": {
+    "url": "https://github.com/hogart/datef/issues"
+  }
 }

@@ -1,4 +1,14 @@
-(function () {
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        define([], function () {
+            return factory(root);
+        });
+    } else if (typeof exports === 'object') {
+        module.exports = factory(root);
+    } else {
+        root.datef = factory(root);
+    }
+}(this, function (root) {
     'use strict';
 
     /**
@@ -112,12 +122,12 @@
      */
     function datef (format, date) {
         var dt = (arguments.length === 2 && date) ? date instanceof Date ? date : new Date(date) : new Date(),
-            result = new String(format);
+            result = format.toString();
 
         return result.replace(regexp, function (match) {
             return tokens[match](dt);
         });
-    };
+    }
 
 
     /**
@@ -154,17 +164,6 @@
     register('ISODateTimeTZ', 'YYYY-MM-ddThh:mm:ssZ');
 
 
-    // get reference to global object
-    var root;
-    if (typeof window !== 'undefined') { // we're in browser, captain!
-        root = window
-    } else if (typeof global !== 'undefined') { // node.js
-        root = global;
-    }
-    else {
-        root = this;
-    }
-
     // conflict management — save link to previous content of datef, whatever it was.
     var prevDatef = root.datef;
 
@@ -176,19 +175,4 @@
         root.datef = prevDatef;
         return this;
     };
-
-    // Expose our precious function to outer world.
-    if (typeof exports !== 'undefined') { // node.js way
-        module.exports.datef = datef;
-    } else if (typeof define === 'function' && define.amd) { // requirejs/amd env
-        define(
-            'datef',
-            [],
-            function () {
-                return datef;
-            }
-        );
-    } else { // plain browser environment
-        root.datef = datef;
-    }
-})();
+}));

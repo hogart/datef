@@ -1,0 +1,21 @@
+{
+  "name": "datef",
+  "main": "datef.js",
+  "version": "0.2.0",
+  "homepage": "https://github.com/hogart/datef",
+  "authors": [
+    "Konstantin Kitmanov <doctor.hogart@gmail.com>",
+    "Maxim Ponomarev <MVPonomarev@gmail.com>"
+  ],
+  "description": "Simple date formatting library, both for browser and node.js",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "date",
+    "format"
+  ],
+  "license": "MIT"
+}

@@ -25,7 +25,7 @@ describe('simple call', function() {
     });
     it('should not throw exception if all ok', function() {
         (datef.bind(null, 'MM/dd/YYYY')).should.not.throw();
-        (datef.bind(null, 'MM/dd/YYYY', '2014-09-05')).should.not.throw();
+        (datef.bind(null, 'MM/dd/YYYY', '2014-10-06')).should.not.throw();
         (datef.bind(null, 'MM/dd/YYYY', 1412485677972)).should.not.throw();
         (datef.bind(null, 'MM/dd/YYYY', new Date())).should.not.throw();
     });

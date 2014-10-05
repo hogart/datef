@@ -143,11 +143,19 @@
      *  Longer tokens take precedence over shorter ones (so "MM" will aways be "04", not "44" in april).
      *
      * @param {String} format
-     * @param {Date|Number} [date=Date.now()]
+     * @param {Date|Number|String} [date=new Date()]
      * 
      * @return {String}
      */
     function datef (format, date) {
+        if (!format || typeof format !== 'string') {
+            throw new TypeError('Argument `format` must be a string');
+        }
+
+        if (date !== undefined && !(date instanceof Date) && typeof date !== 'number' && typeof date !== 'string') {
+            throw new TypeError('Argument `date` must be instanse of Date or Unix Timestamp or ISODate String');
+        }
+
         var dt = (arguments.length === 2 && date) ? date instanceof Date ? date : new Date(date) : new Date();
 
         format = format.toString();
@@ -273,8 +281,7 @@
         root = window;
     } else if (typeof global !== 'undefined') { // node.js
         root = global;
-    }
-    else {
+    } else {
         root = this;
     }
 

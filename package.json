@@ -2,13 +2,19 @@
   "name": "datef",
   "version": "0.0.4",
   "description": "Simple date formatting library with i10n, both for browser and node.js",
-  "main": "datef.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "author": "Konstantin Kitmanov <doctor.hogart@gmail.com>",
+  "contributors" : [
+    {
+      "name": "Maxim Ponomarev",
+      "email": "maxvipon@gmail.com"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/maxvipon/datef.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maxvipon/datef/issues"
   },
   "keywords": [
     "moment",
@@ -17,15 +23,20 @@
     "format",
     "l10n"
   ],
-  "author": "Konstantin Kitmanov <doctor.hogart@gmail.com>",
-  "contributors" : [
-    {
-      "name": "Maxim Ponomarev",
-      "email": "maxvipon@gmail.com"
-    }
-  ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/maxvipon/datef/issues"
+  "main": "datef.js",
+  "devDependencies": {
+    "mocha": "1.x",
+    "chai": "1.x",
+    "istanbul": "0.2.x",
+    "jshint": "2.x",
+    "jscs": "1.4.x"
+  },
+  "scripts": {
+    "test" : "npm run-script jshint && npm run-script check-style && npm run-script unit-test-coverage",
+    "jshint": "./node_modules/.bin/jshint .",
+    "unit-test": "./node_modules/.bin/mocha -u bdd -R spec --recursive test",
+    "unit-test-coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha -- -u bdd -R spec --recursive test",
+    "check-style": "./node_modules/jscs/bin/jscs ."
   }
 }

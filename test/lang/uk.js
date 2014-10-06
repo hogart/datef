@@ -10,7 +10,8 @@ describe('Ukrainian laguage (uk)', function() {
             datef('MMMM', '2008-' + (index + 1) + '-05').should.be.equal(month);
         });
         'січня_лютого_березня_квітня_травня_червня_липня_серпня_вересня_жовтня_листопада_грудня'.split('_').forEach(function(month, index) {
-            datef('d MMMM', '2008-' + (index + 1) + '-05').should.be.equal('5 ' + month);
+            var matcher = new RegExp('^\\d ' + month + '$');
+            datef('d MMMM', '2008-' + (index + 1) + '-05').should.be.match(matcher);
         });
         'січ_лют_бер_квіт_трав_черв_лип_серп_вер_жовт_лист_груд'.split('_').forEach(function(month, index) {
             datef('MMM', '2008-' + (index + 1) + '-05').should.be.equal(month);

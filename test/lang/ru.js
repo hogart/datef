@@ -10,7 +10,8 @@ describe('Russian laguage (ru)', function() {
             datef('MMMM', '2008-' + (index + 1) + '-05').should.be.equal(month);
         });
         'января_февраля_марта_апреля_мая_июня_июля_августа_сентября_октября_ноября_декабря'.split('_').forEach(function(month, index) {
-            datef('d MMMM', '2008-' + (index + 1) + '-05').should.be.equal('5 ' + month);
+            var matcher = new RegExp('^\\d ' + month + '$');
+            datef('d MMMM', '2008-' + (index + 1) + '-05').should.be.match(matcher);
         });
         'янв_фев_мар_апр_май_июнь_июль_авг_сен_окт_ноя_дек'.split('_').forEach(function(month, index) {
             datef('MMM', '2008-' + (index + 1) + '-05').should.be.equal(month);

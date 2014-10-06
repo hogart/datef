@@ -9,16 +9,15 @@ describe('format', function() {
         var offset = new Date('2008-03-05T00:00:00Z').getTimezoneOffset() / -60;
         var hour, hourZp, aHour, aHourZp;
 
-        if (offset < 0) {
-            hour = 24 + offset;
-        }
+        hour = offset < 0 ? (24 + offset) : offset;
 
-        hour    = offset.toString();
         hourZp  = (hour < 10 ? ('0' + hour) : hour).toString();
-        aHour   = (hour > 12 ? hour - 12 : hour).toString();
+        aHour   = (hour % 12 || 12).toString();
         aHourZp = (aHour < 10 ? ('0' + aHour) : aHour).toString();
+        hour    = hour.toString();
 
-        console.log('    ! offset %s, hourZp: %s, aHour %s, aHourZp: %s', hour, hourZp, aHour, aHourZp);
+        console.log('    ! offset: %s, hour %s, hourZp: %s, aHour %s, aHourZp: %s',
+            offset, hour, hourZp, aHour, aHourZp);
 
         datef('YYYY', '2008-03-05').should.be.equal('2008');
         datef('YY',   '2008-03-05').should.be.equal('08');

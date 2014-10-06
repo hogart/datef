@@ -10,7 +10,8 @@ describe('Kazakh laguage (kk)', function() {
             datef('MMMM', '2008-' + (index + 1) + '-05').should.be.equal(month);
         });
         'қаңтардың_ақпанның_науырыздың_сәуірдің_мамырдың_маусымның_шілденің_тамыздың_қыркүйектің_қазанның_қарашаның_желтоқсанның'.split('_').forEach(function(month, index) {
-            datef('d MMMM', '2008-' + (index + 1) + '-05').should.be.equal('5 ' + month);
+            var matcher = new RegExp('^\\d ' + month + '$');
+            datef('d MMMM', '2008-' + (index + 1) + '-05').should.be.match(matcher);
         });
         'қаң_ақп_нар_сәр_мам_маус_шіл_там_қыр_қаз_қар_жел'.split('_').forEach(function(month, index) {
             datef('MMM', '2008-' + (index + 1) + '-05').should.be.equal(month);

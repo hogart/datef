@@ -311,4 +311,6 @@
         root.datef = prevDatef;
         return this;
     };
+
+    return datef;
 }));

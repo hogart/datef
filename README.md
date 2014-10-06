@@ -1,4 +1,4 @@
-# datef
+# datef [![NPM version](https://badge.fury.io/js/datef.svg)](http://badge.fury.io/js/datef) [![Build Status](https://travis-ci.org/maxvipon/datef.svg)](https://travis-ci.org/maxvipon/datef) [![Coverage Status](https://coveralls.io/repos/maxvipon/datef/badge.png)](https://coveralls.io/r/maxvipon/datef)
 
 **datef** is a Javascript date formatting library, both for browser and node.js.
 

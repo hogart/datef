@@ -186,7 +186,7 @@
      */
     var lang = datef.lang = function (lang, options) {
         if (!lang) {
-            return languages.current || 'en';
+            return languages.current;
         }
 
         if (!options) {
@@ -196,12 +196,15 @@
                 try {
                     require('./lang/' + lang);
                     languages.current = lang;
-                } catch (e) { }
+                } catch (e) {
+                    return languages.current;
+                }
             }
             return languages.current;
         }
 
         languages[lang] = options;
+        languages.current = lang;
         return languages.current;
     };
 
@@ -251,7 +254,16 @@
      * Using is just `datef('myformat')`
      * 
      * @param {String} name
-     * @param {String} format
+     * @param {String|Object} format
+     *
+     * @example
+     * ```js
+     * datef.register('longDate', 'd MMMM');
+     * datef.register('longDateAndTime', {
+     *   'en': 'MMMM d, h:mma',
+     *   'default': 'd MMMM, HH:mm'
+     * });
+     * ```
      * 
      * @return {Function} Readied formatting function with one argument — date.
      */

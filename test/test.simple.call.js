@@ -2,9 +2,6 @@ var datef = require('../datef');
 require('chai').should();
 
 describe('simple call', function() {
-    beforeEach(function() {
-        
-    });
     it('should throw exception with no arguments', function() {
         datef.should.throw();
     });
@@ -17,11 +14,11 @@ describe('simple call', function() {
         (datef.bind(null, function() {})).should.throw(TypeError);
     });
     it('should throw exception if date is not correct', function() {
-        (datef.bind(null, {})).should.throw(TypeError);
-        (datef.bind(null, [])).should.throw(TypeError);
-        (datef.bind(null, null)).should.throw(TypeError);
-        (datef.bind(null, true)).should.throw(TypeError);
-        (datef.bind(null, function() {})).should.throw(TypeError);
+        (datef.bind(null, 'MM', {})).should.throw(TypeError);
+        (datef.bind(null, 'MM', [])).should.throw(TypeError);
+        (datef.bind(null, 'MM', null)).should.throw(TypeError);
+        (datef.bind(null, 'MM', true)).should.throw(TypeError);
+        (datef.bind(null, 'MM', function() {})).should.throw(TypeError);
     });
     it('should not throw exception if all ok', function() {
         (datef.bind(null, 'MM/dd/YYYY')).should.not.throw();

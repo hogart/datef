@@ -29,9 +29,9 @@
         weekdaysMin: 'ne_po_út_stř_čt_pá_so'.split('_'),
         meridiem : function (hour) {
             if (hour < 12) {
-                return 'ráno';
+                return 'dopoledne';
             } else {
-                return '';
+                return 'odpoledne';
             }
         }
     });

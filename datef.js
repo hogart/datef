@@ -1,4 +1,14 @@
-(function () {
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        define([], function () {
+            return factory(root);
+        });
+    } else if (typeof exports === 'object') {
+        module.exports = factory(root);
+    } else {
+        root.datef = factory(root);
+    }
+}(this, function (root) {
     'use strict';
 
     /**
@@ -153,7 +163,7 @@
         }
 
         if (date !== undefined && !(date instanceof Date) && typeof date !== 'number' && typeof date !== 'string') {
-            throw new TypeError('Argument `date` must be instanse of Date or Unix Timestamp or ISODate String');
+            throw new TypeError('Argument `date` must be instance of Date or Unix Timestamp or ISODate String');
         }
 
         var dt = (arguments.length === 2 && date) ? date instanceof Date ? date : new Date(date) : new Date();
@@ -287,16 +297,6 @@
     register('ISODateTime', 'YYYY-MM-ddThh:mm:ss');
     register('ISODateTimeTZ', 'YYYY-MM-ddThh:mm:ssZ');
 
-    // get reference to global object
-    var root;
-    if (typeof window !== 'undefined') { // we're in browser, captain!
-        root = window;
-    } else if (typeof global !== 'undefined') { // node.js
-        root = global;
-    } else {
-        root = this;
-    }
-
     // conflict management — save link to previous content of datef, whatever it was.
     var prevDatef = root.datef;
 
@@ -310,14 +310,5 @@
         return this;
     };
 
-    // Expose our precious function to outer world.
-    if (hasModule) {
-        module.exports = datef;
-    } else if (typeof define === 'function' && define.amd) {
-        define('datef', [], function(){
-            return datef;
-        });
-    } else {
-        root.datef = datef;
-    }
-})();
+    return datef;
+}));

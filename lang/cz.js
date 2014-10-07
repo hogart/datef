@@ -7,7 +7,7 @@
         factory(window.datef);
     }
 }(function (datef) {
-    datef.lang('ru', {
+    datef.lang('cz', {
         _months: {
             nominative: 'leden_únor_březen_duben_květen_červen_červenec_září_říjen_listopad_prosinec'.split('_'),
             accusative: 'ledna_února_března_dubna_května_června_července_září_října_listopadu_prosince'.split('_')

@@ -1,9 +1,9 @@
 {
   "name": "datef",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Simple date formatting library with i10n, both for browser and node.js",
   "author": "Konstantin Kitmanov <doctor.hogart@gmail.com>",
-  "contributors" : [
+  "contributors": [
     {
       "name": "Maxim Ponomarev",
       "email": "maxvipon@gmail.com"
@@ -33,7 +33,7 @@
     "jscs": "1.4.x"
   },
   "scripts": {
-    "test" : "npm run-script jshint && npm run-script check-style && npm run-script unit-test-coverage",
+    "test": "npm run-script jshint && npm run-script check-style && npm run-script unit-test-coverage",
     "jshint": "./node_modules/.bin/jshint .",
     "unit-test": "./node_modules/.bin/mocha -u bdd -R spec --recursive test",
     "unit-test-coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha -- -u bdd -R spec --recursive test",

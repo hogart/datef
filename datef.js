@@ -103,13 +103,18 @@
         a: function (date) {
             return languages[datef.lang()].meridiem(date.getHours(), true);
         },
-        Z: function (date) {
+        ZZ: function (date, format, separator) {
             var tz = date.getTimezoneOffset(),
                 hours = Math.abs(Math.floor(tz / 60)),
                 mins = tz % 60,
                 sign = tz > 0 ? '+' : '-';
 
-            return [sign, leadingZeroes(hours), ':', leadingZeroes(mins)].join('');
+            separator = separator || '';
+
+            return sign + [leadingZeroes(hours), leadingZeroes(mins)].join(separator);
+        },
+        Z: function (date) {
+            return tokens.ZZ(date, null, ':');
         }
     };
 
@@ -148,7 +153,8 @@
      *  * **f**: milliseconds
      *  * **A**: AM/PM
      *  * **a**: am/pm
-     *  * **Z**: time-zone in ISO8601-compatible format (i.e. "-04:00")
+     *  * **ZZ**: time-zone in ISO8601-compatible basic format (i.e. "-0400")
+     *  * **Z**: time-zone in ISO8601-compatible extended format (i.e. "-04:00")
      *
      *  Longer tokens take precedence over shorter ones (so "MM" will aways be "04", not "44" in april).
      *

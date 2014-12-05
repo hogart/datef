@@ -153,8 +153,5 @@ Full list of tokens possible in format string include:
 * **f**: milliseconds
 * **A**: AM/PM
 * **a**: am/pm
-* **Z**: time-zone in ISO8601-compatible format (i.e. "-04:00")
-
-## Roadmap
-
-* add more languages
+* **Z**: time-zone in ISO8601-compatible basic format (i.e. "-04:00")
+* **Z**: time-zone in ISO8601-compatible extended format (i.e. "-04:00")

@@ -107,7 +107,7 @@
             var tz = date.getTimezoneOffset(),
                 hours = Math.abs(Math.floor(tz / 60)),
                 mins = tz % 60,
-                sign = tz > 0 ? '+' : '-';
+                sign = tz > 0 ? '-' : '+';
 
             separator = separator || '';
 

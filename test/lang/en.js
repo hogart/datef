@@ -1,7 +1,7 @@
 var datef = require('../../datef');
 require('chai').should();
 
-describe('English laguage (en)', function() {
+describe('English language (en)', function() {
     beforeEach(function() {
         datef.lang('en');
     });

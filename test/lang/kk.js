@@ -1,7 +1,7 @@
 var datef = require('../../datef');
 require('chai').should();
 
-describe('Kazakh laguage (kk)', function() {
+describe('Kazakh language (kk)', function() {
     beforeEach(function() {
         datef.lang('kk');
     });

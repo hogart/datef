@@ -21,8 +21,8 @@
             return this._monthsShort[date.getMonth()];
         },
         weekdays: 'нядзеля_панядзелак_аўторак_серада_чацвер_пятніца_субота'.split('_'),
-        weekdaysShort: 'нд_пн_аўт_сер_чц_пт_сб'.split('_'),
-        weekdaysMin: 'нд_пн_аўт_сер_чц_пт_сб'.split('_'),
+        weekdaysShort: 'ндз_пн_аўт_сер_чц_пт_сб'.split('_'),
+        weekdaysMin: 'ндз_пн_аўт_сер_чц_пт_сб'.split('_'),
         meridiem : function (hour) {
             if (hour < 4) {
                 return 'ночы';

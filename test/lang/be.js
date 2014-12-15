@@ -19,7 +19,7 @@ describe('Belarusian language (be)', function() {
         'панядзелак_аўторак_серада_чацвер_пятніца_субота_нядзеля'.split('_').forEach(function(day, index) {
             datef('DD', '2014-09-' + (index + 1)).should.be.equal(day);
         });
-        'пн_аўт_сер_чц_пт_сб_нд'.split('_').forEach(function(day, index) {
+        'пн_аўт_сер_чц_пт_сб_ндз'.split('_').forEach(function(day, index) {
             datef('D', '2014-09-' + (index + 1)).should.be.equal(day);
         });
     });

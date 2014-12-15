@@ -16,7 +16,7 @@
             var nounCase = /dd?\s*MMMM?/.test(format) ? 'accusative' : 'nominative';
             return this._months[nounCase][date.getMonth()];
         },
-        _monthsShort: 'студ_лют_сак_крас_трав_чэрв_ліп_жнів_вер_каст_лист_снеж'.split('_'),
+        _monthsShort: 'сту_лют_сак_кра_тра_чэр_ліп_жні_вер_кас_лис_сне'.split('_'),
         monthsShort: function (date) {
             return this._monthsShort[date.getMonth()];
         },

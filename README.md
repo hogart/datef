@@ -137,8 +137,9 @@ Full list of tokens possible in format string include:
 * **MMM**: short name of month
 * **MM**: ISO8601-compatible number of month (i.e. zero-padded) in year (with January being 1st month)
 * **M**: number of month in year without zero-padding (with January being 1st month)
-* **DD**: full name of day
-* **D**: short name of day
+* **DDD**: full name of day
+* **DD**: short name of day
+* **D**: min name of day
 * **dd**: zero-padded number of day in month
 * **d**: number of day in month
 * **HH**: zero-padded 24 hour time
@@ -153,5 +154,5 @@ Full list of tokens possible in format string include:
 * **f**: milliseconds
 * **A**: AM/PM
 * **a**: am/pm
-* **Z**: time-zone in ISO8601-compatible basic format (i.e. "-0400")
-* **ZZ**: time-zone in ISO8601-compatible extended format (i.e. "-04:00")
+* **ZZ**: time-zone in ISO8601-compatible basic format (i.e. "-0400")
+* **Z**: time-zone in ISO8601-compatible extended format (i.e. "-04:00")

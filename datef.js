@@ -12,12 +12,12 @@
     'use strict';
 
     /**
-     * Converts `value` to string and pad it with leading zeroes 
+     * Converts `value` to string and pad it with leading zeroes
      * until resulting string reaches `length`
-     * 
+     *
      * @param {Number} value
      * @param {Number} [length=2]
-     * 
+     *
      * @return {String}
      */
     function leadingZeroes(value, length) {
@@ -55,8 +55,11 @@
         M: function (date) {
             return date.getMonth() + 1;
         },
-        DD: function (date) {
+        DDD: function (date) {
             return languages[datef.lang()].weekdays[date.getDay()];
+        },
+        DD: function (date) {
+            return languages[datef.lang()].weekdaysShort[date.getDay()];
         },
         D: function (date) {
             return languages[datef.lang()].weekdaysMin[date.getDay()];
@@ -137,8 +140,9 @@
      *  * **MMM**: short name of month
      *  * **MM**: ISO8601-compatible number of month (i.e. zero-padded) in year (with January being 1st month)
      *  * **M**: number of month in year without zero-padding (with January being 1st month)
-     *  * **DD**: full name of day
-     *  * **D**: short name of day
+     *  * **DDD**: full name of day
+     *  * **DD**: short name of day
+     *  * **D**: min name of day
      *  * **dd**: zero-padded number of day in month
      *  * **d**: number of day in month
      *  * **HH**: zero-padded hour in 24-hr format
@@ -160,7 +164,7 @@
      *
      * @param {String} format
      * @param {Date|Number|String} [date=new Date()]
-     * 
+     *
      * @return {String}
      */
     function datef (format, date) {
@@ -187,17 +191,17 @@
 
     /**
      * Predefined languages storage.
-     * 
+     *
      * @type {Object}
      */
     var languages = datef._languages = {};
-    
+
     /**
      * Creates lang function.
-     * 
+     *
      * @param  {String}   lang      Language to set
      * @param  {Object}   [options] Language options
-     * 
+     *
      * @return {String}             Current language.
      */
     var lang = datef.lang = function (lang, options) {
@@ -248,7 +252,7 @@
 
     /**
      * Creates formatting function. Basically just curry over datef.
-     * 
+     *
      * @return {Function} Readied formatting function with one argument — date.
      */
     var createFormatter = function (format) {
@@ -260,7 +264,7 @@
 
     /**
      * Predefined formatters storage.
-     * 
+     *
      * @type {Object}
      */
     var formatters = datef._formatters = {};
@@ -268,7 +272,7 @@
     /**
      * Creates formatting function and files it under `datef.formatters[name]`
      * Using is just `datef('myformat')`
-     * 
+     *
      * @param {String} name
      * @param {String|Object} format
      *
@@ -280,7 +284,7 @@
      *   'default': 'd MMMM, HH:mm'
      * });
      * ```
-     * 
+     *
      * @return {Function} Readied formatting function with one argument — date.
      */
     var register = datef.register = function (name, format) {
@@ -308,7 +312,7 @@
 
     /**
      * Cleans global namespace, restoring previous value of window.datef, and returns datef itself.
-     * 
+     *
      * @return {datef}
      */
     datef.noConflict = function () {

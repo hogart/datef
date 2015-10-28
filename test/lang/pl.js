@@ -1,24 +1,24 @@
 var datef = require('../../datef');
 require('chai').should();
 
-describe('English language (en)', function() {
+describe('Polish language (pl)', function() {
     beforeEach(function() {
-        datef.lang('en');
+        datef.lang('pl');
     });
     it('should correct format the date', function() {
-        'January_February_March_April_May_June_July_August_September_October_November_December'.split('_').forEach(function(month, index) {
+        'styczeń_luty_marzec_kwiecień_maj_czerwiec_lipiec_sierpeń_wrzesień_październik_listopad_grudzień'.split('_').forEach(function(month, index) {
             datef('MMMM', '2008-' + (index + 1) + '-05').should.be.equal(month);
         });
-        'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_').forEach(function(month, index) {
+        'sty_lut_mar_kwi_maj_cze_lip_sie_wrz_paź_lis_gru'.split('_').forEach(function(month, index) {
             datef('MMM', '2008-' + (index + 1) + '-05').should.be.equal(month);
         });
-        'Monday_Tuesday_Wednesday_Thursday_Friday_Saturday_Sunday'.split('_').forEach(function(day, index) {
+        'poniedziałek_wtorek_środa_czwartek_piątek_sobota_niedziela'.split('_').forEach(function(day, index) {
             datef('DDD', '2014-09-' + (index + 1)).should.be.equal(day);
         });
-        'Mon_Tue_Wed_Thu_Fri_Sat_Sun'.split('_').forEach(function(day, index) {
+        'pon_wt_śr_czw_pt_sb_nie'.split('_').forEach(function(day, index) {
             datef('DD', '2014-09-' + (index + 1)).should.be.equal(day);
         });
-        'Mo_Tu_We_Th_Fr_Sa_Su'.split('_').forEach(function(day, index) {
+        'Pn_Wt_Śr_Cz_Pt_So_N'.split('_').forEach(function(day, index) {
             datef('D', '2014-09-' + (index + 1)).should.be.equal(day);
         });
     });

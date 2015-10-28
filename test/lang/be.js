@@ -17,9 +17,10 @@ describe('Belarusian language (be)', function() {
             datef('MMM', '2008-' + (index + 1) + '-05').should.be.equal(month);
         });
         'панядзелак_аўторак_серада_чацвер_пятніца_субота_нядзеля'.split('_').forEach(function(day, index) {
-            datef('DD', '2014-09-' + (index + 1)).should.be.equal(day);
+            datef('DDD', '2014-09-' + (index + 1)).should.be.equal(day);
         });
         'пн_аўт_сер_чц_пт_сб_ндз'.split('_').forEach(function(day, index) {
+            datef('DD', '2014-09-' + (index + 1)).should.be.equal(day);
             datef('D', '2014-09-' + (index + 1)).should.be.equal(day);
         });
     });

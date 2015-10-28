@@ -13,6 +13,9 @@ describe('Turkish language (tr)', function() {
             datef('MMM', '2008-' + (index + 1) + '-05').should.be.equal(month);
         });
         'Pazartesi_Salı_Çarşamba_Perşembe_Cuma_Cumartesi_Pazar'.split('_').forEach(function(day, index) {
+            datef('DDD', '2014-09-' + (index + 1)).should.be.equal(day);
+        });
+        'Pts_Sal_Çar_Per_Cum_Cts_Paz'.split('_').forEach(function(day, index) {
             datef('DD', '2014-09-' + (index + 1)).should.be.equal(day);
         });
         'Pt_Sa_Ça_Pe_Cu_Ct_Pz'.split('_').forEach(function(day, index) {

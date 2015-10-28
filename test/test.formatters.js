@@ -1,7 +1,7 @@
 var datef = require('../datef');
 require('chai').should();
 
-describe('language', function() {
+describe('formatters', function() {
     beforeEach(function() {
         datef.lang('en');
     });

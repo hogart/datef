@@ -1,0 +1,32 @@
+{
+  "name": "datef",
+  "version": "0.2.0",
+  "description": "Simple date formatting library, both for browser and node.js",
+  "main": "datef.js",
+  "homepage": "https://github.com/hogart/datef",
+  "license": "MIT",
+
+  "keywords": [
+    "moment",
+    "date",
+    "time",
+    "format",
+    "l10n"
+  ],
+
+  "authors": [
+    "Konstantin Kitmanov <doctor.hogart@gmail.com>",
+    "Maxim Ponomarev <maxvipon@gmail.com>"
+  ],
+
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hogart/datef.git"
+  },
+
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ]
+}

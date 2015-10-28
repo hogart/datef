@@ -13,9 +13,10 @@ describe('Tatar language (tt)', function() {
             datef('MMM', '2008-' + (index + 1) + '-05').should.be.equal(month);
         });
         'дүшәмбе_сишәмбе_чәршәмбе_пәнҗешәмбе_җомга_шимбә_якшәмбе'.split('_').forEach(function(day, index) {
-            datef('DD', '2014-09-' + (index + 1)).should.be.equal(day);
+            datef('DDD', '2014-09-' + (index + 1)).should.be.equal(day);
         });
         'дш_сш_чш_пш_җм_шм_як'.split('_').forEach(function(day, index) {
+            datef('DD', '2014-09-' + (index + 1)).should.be.equal(day);
             datef('D', '2014-09-' + (index + 1)).should.be.equal(day);
         });
     });

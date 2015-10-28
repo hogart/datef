@@ -6,10 +6,10 @@ describe('Belarusian laguage (be)', function() {
         datef.lang('be');
     });
     it('should correct format the date', function() {
-        'студзень_люты_сакавік_красавік_травень_чэрвень_ліпень_жнівень_верасень_кастрычнік_листопад_снежань'.split('_').forEach(function(month, index) {
+        'студзень_люты_сакавік_красавік_травень_чэрвень_ліпень_жнівень_верасень_кастрычнік_лістапад_снежань'.split('_').forEach(function(month, index) {
             datef('MMMM', '2008-' + (index + 1) + '-05').should.be.equal(month);
         });
-        'студзеня_лютага_сакавіка_красавіка_траўня_чэрвеня_ліпеня_жніўня_верасеня_кастрычніка_листопада_снежня'.split('_').forEach(function(month, index) {
+        'студзеня_лютага_сакавіка_красавіка_траўня_чэрвеня_ліпеня_жніўня_верасеня_кастрычніка_лістапада_снежня'.split('_').forEach(function(month, index) {
             var matcher = new RegExp('^\\d ' + month + '$');
             datef('d MMMM', '2008-' + (index + 1) + '-05').should.be.match(matcher);
         });

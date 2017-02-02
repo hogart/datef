@@ -1,6 +1,6 @@
 {
   "name": "datef",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Simple date formatting library with i10n, both for browser and node.js",
   "author": "Konstantin Kitmanov <doctor.hogart@gmail.com>",
   "contributors": [
@@ -23,6 +23,8 @@
     "format",
     "l10n"
   ],
+
+  "typings": "./datef.d.ts",
 
   "devDependencies": {
     "mocha": "1.x",

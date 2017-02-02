@@ -1,7 +1,7 @@
 var datef = require('../../datef');
 require('chai').should();
 
-describe('Belarusian laguage (be)', function() {
+describe('Belarusian language (be)', function() {
     beforeEach(function() {
         datef.lang('be');
     });
@@ -13,13 +13,14 @@ describe('Belarusian laguage (be)', function() {
             var matcher = new RegExp('^\\d ' + month + '$');
             datef('d MMMM', '2008-' + (index + 1) + '-05').should.be.match(matcher);
         });
-        'студ_лют_сак_крас_трав_чэрв_ліп_жнів_вер_каст_лист_снеж'.split('_').forEach(function(month, index) {
+        'сту_лют_сак_кра_тра_чэр_ліп_жні_вер_кас_лис_сне'.split('_').forEach(function(month, index) {
             datef('MMM', '2008-' + (index + 1) + '-05').should.be.equal(month);
         });
         'панядзелак_аўторак_серада_чацвер_пятніца_субота_нядзеля'.split('_').forEach(function(day, index) {
-            datef('DD', '2014-09-' + (index + 1)).should.be.equal(day);
+            datef('DDD', '2014-09-' + (index + 1)).should.be.equal(day);
         });
-        'пн_аўт_сер_чц_пт_сб_нд'.split('_').forEach(function(day, index) {
+        'пн_аўт_сер_чц_пт_сб_ндз'.split('_').forEach(function(day, index) {
+            datef('DD', '2014-09-' + (index + 1)).should.be.equal(day);
             datef('D', '2014-09-' + (index + 1)).should.be.equal(day);
         });
     });

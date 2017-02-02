@@ -1,7 +1,7 @@
 var datef = require('../../datef');
 require('chai').should();
 
-describe('Ukrainian laguage (uk)', function() {
+describe('Ukrainian language (uk)', function() {
     beforeEach(function() {
         datef.lang('uk');
     });
@@ -17,9 +17,10 @@ describe('Ukrainian laguage (uk)', function() {
             datef('MMM', '2008-' + (index + 1) + '-05').should.be.equal(month);
         });
         'понеділок_вівторок_середа_четвер_п’ятниця_субота_неділя'.split('_').forEach(function(day, index) {
-            datef('DD', '2014-09-' + (index + 1)).should.be.equal(day);
+            datef('DDD', '2014-09-' + (index + 1)).should.be.equal(day);
         });
         'пн_вт_ср_чт_пт_сб_нд'.split('_').forEach(function(day, index) {
+            datef('DD', '2014-09-' + (index + 1)).should.be.equal(day);
             datef('D', '2014-09-' + (index + 1)).should.be.equal(day);
         });
     });

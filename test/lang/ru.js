@@ -1,7 +1,7 @@
 var datef = require('../../datef');
 require('chai').should();
 
-describe('Russian laguage (ru)', function() {
+describe('Russian language (ru)', function() {
     beforeEach(function() {
         datef.lang('ru');
     });
@@ -17,9 +17,10 @@ describe('Russian laguage (ru)', function() {
             datef('MMM', '2008-' + (index + 1) + '-05').should.be.equal(month);
         });
         'понедельник_вторник_среда_четверг_пятница_суббота_воскресенье'.split('_').forEach(function(day, index) {
-            datef('DD', '2014-09-' + (index + 1)).should.be.equal(day);
+            datef('DDD', '2014-09-' + (index + 1)).should.be.equal(day);
         });
         'пн_вт_ср_чт_пт_сб_вс'.split('_').forEach(function(day, index) {
+            datef('DD', '2014-09-' + (index + 1)).should.be.equal(day);
             datef('D', '2014-09-' + (index + 1)).should.be.equal(day);
         });
     });

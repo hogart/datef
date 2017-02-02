@@ -50,5 +50,6 @@ describe('format', function() {
         datef('A',    '2008-03-05T00:00:00Z').should.match(/^AM|PM$/);
         datef('a',    '2008-03-05T00:00:00Z').should.match(/^am|pm$/);
         datef('Z',    '2008-03-05').should.match(/^[-+]\d{2}:\d{2}$/);
+        datef('ZZ',   '2008-03-05').should.match(/^[-+]\d{4}$/);
     });
 });

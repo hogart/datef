@@ -1,7 +1,7 @@
 var datef = require('../../datef');
 require('chai').should();
 
-describe('Kazakh laguage (kk)', function() {
+describe('Kazakh language (kk)', function() {
     beforeEach(function() {
         datef.lang('kk');
     });
@@ -17,9 +17,10 @@ describe('Kazakh laguage (kk)', function() {
             datef('MMM', '2008-' + (index + 1) + '-05').should.be.equal(month);
         });
         'дүйсенбі_сейсенбі_сәрсенбі_бейсенбі_жұма_сенбі_жексенбі'.split('_').forEach(function(day, index) {
-            datef('DD', '2014-09-' + (index + 1)).should.be.equal(day);
+            datef('DDD', '2014-09-' + (index + 1)).should.be.equal(day);
         });
         'дс_сн_ср_бс_жм_сб_жк'.split('_').forEach(function(day, index) {
+            datef('DD', '2014-09-' + (index + 1)).should.be.equal(day);
             datef('D', '2014-09-' + (index + 1)).should.be.equal(day);
         });
     });
